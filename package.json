@@ -1,0 +1,11 @@
+{
+  "name": "syt",
+  "version": "0.0.1",
+  "description": "Youtube Video, Music, Playlist Dowloader",
+  "main": "main.js",
+  "author": "Mehmet Uysal",
+  "license": "MIT",
+  "dependencies": {
+    "youtube-dl": "^3.5.0"
+  }
+}
