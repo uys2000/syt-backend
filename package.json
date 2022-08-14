@@ -6,6 +6,11 @@
   "author": "Mehmet Uysal",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
     "youtube-dl": "^3.5.0"
+  },
+  "scripts": {
+    "serve": "node main.js"
   }
 }

@@ -1,23 +1,28 @@
 const express = require("express");
-const cors = require("cors");
 const path = require("path");
+const cors = require("cors");
 const app = express();
 
-const port = 3000;
-
-const webRouter = require("./routes/web.js");
-const apiRouter = require("./routes/api.js");
+const port = 3001;
 
 var corsOptions = {
-  origin: 'http://mehmetuysal.texh',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 
-app.use("/", webRouter);
-app.use("/api", apiRouter);
+const apiRouter = require("./routes/api.js");
+const webRouter = require("./routes/web.js");
 
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/api", apiRouter);
+app.use("/", webRouter);
 
 app.listen(port, () => {
   console.log(`
