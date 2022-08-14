@@ -19,7 +19,9 @@ yarn serve
 #### Get Video Info
 
 **Method** : `GET`
+
 **URL** : `/info/video/:id`
+
 **Response** :
 
 ```json
